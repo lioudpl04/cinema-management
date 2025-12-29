@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>gr.uni.cinema</groupId>
-    <artifactId>cinema-managment</artifactId>
+    <artifactId>cinema-management</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>cinema-managment</name>
-    <description>cinema-managment</description>
+    <name>cinema-management</name>
+    <description>cinema-management</description>
     <url/>
     <licenses>
         <license/>

@@ -1,4 +1,4 @@
-package gr.uni.cinema.cinemamanagment;
+package gr.uni.cinema.cinemamanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
