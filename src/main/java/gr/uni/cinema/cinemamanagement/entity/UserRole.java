@@ -1,9 +1,8 @@
 package gr.uni.cinema.cinemamanagement.entity;
 
 public enum UserRole {
-    VISITOR,
+
+    // Genikoi roloi tou user sto systima.
     USER,
-    PROGRAMMER,
-    STAFF,
     ADMIN
 }

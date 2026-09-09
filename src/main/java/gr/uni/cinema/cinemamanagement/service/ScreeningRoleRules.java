@@ -1,48 +1,48 @@
 package gr.uni.cinema.cinemamanagement.service;
 
+import gr.uni.cinema.cinemamanagement.entity.ProgramRoleType;
 import gr.uni.cinema.cinemamanagement.entity.ScreeningState;
-import gr.uni.cinema.cinemamanagement.entity.UserRole;
 
 import java.util.Set;
 
 public class ScreeningRoleRules {
 
+    // Elegxei an o rolos mporei na kanei ti sygkekrimeni allagi state.
     public static boolean canChangeState(
-            UserRole role,
+            ProgramRoleType role,
             ScreeningState from,
-            ScreeningState to
-    ) {
+            ScreeningState to) {
+
         return switch (from) {
 
-            // 👤 USER submits screening
+            // O SUBMITTER kanei submit to screening.
             case CREATED ->
-                    role == UserRole.USER
+                    role == ProgramRoleType.SUBMITTER
                             && to == ScreeningState.SUBMITTED;
 
-            // 👨‍💼 PROGRAMMER reviews or rejects
+            // O STAFF kanei review to screening.
             case SUBMITTED ->
-                    role == UserRole.PROGRAMMER
-                            && Set.of(
-                            ScreeningState.REVIEWED,
-                            ScreeningState.REJECTED
-                    ).contains(to);
+                    role == ProgramRoleType.STAFF
+                            && to == ScreeningState.REVIEWED;
 
-            // 👨‍💼 PROGRAMMER approves or rejects
+            // O SUBMITTER mporei na egkrinei i na aporripsei meta to review.
             case REVIEWED ->
-                    role == UserRole.PROGRAMMER
+                    role == ProgramRoleType.SUBMITTER
                             && Set.of(
                             ScreeningState.APPROVED,
                             ScreeningState.REJECTED
                     ).contains(to);
 
-            // 👨‍💼 PROGRAMMER schedules
+            // O PROGRAMMER kanei to teliko scheduling i rejection.
             case APPROVED ->
-                    role == UserRole.PROGRAMMER
-                            && to == ScreeningState.SCHEDULED;
+                    role == ProgramRoleType.PROGRAMMER
+                            && Set.of(
+                            ScreeningState.SCHEDULED,
+                            ScreeningState.REJECTED
+                    ).contains(to);
 
-            // ❌ terminal states
-            case SCHEDULED, REJECTED ->
-                    false;
+            // Telikes katastaseis.
+            case SCHEDULED, REJECTED -> false;
         };
     }
 }

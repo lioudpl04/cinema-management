@@ -25,10 +25,12 @@ public class Program {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    // To state apothikeuetai sti vasi os String.
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ProgramState state = ProgramState.CREATED;
 
+    // O user pou dimiourgise to program.
     @ManyToOne
     @JoinColumn(name = "created_by")
     private User creator;

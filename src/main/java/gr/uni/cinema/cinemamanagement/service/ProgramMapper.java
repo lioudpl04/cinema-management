@@ -5,7 +5,9 @@ import gr.uni.cinema.cinemamanagement.entity.Program;
 
 public class ProgramMapper {
 
+    // Metatrepei ena Program entity se ProgramResponse.
     public static ProgramResponse toResponse(Program program) {
+
         return new ProgramResponse(
                 program.getId(),
                 program.getName(),
@@ -14,7 +16,9 @@ public class ProgramMapper {
                 program.getStartDate(),
                 program.getEndDate(),
                 program.getCreatedAt(),
-                program.getCreator() != null ? program.getCreator().getUsername() : null
+                program.getCreator() != null
+                        ? program.getCreator().getUsername()
+                        : null
         );
     }
 }
