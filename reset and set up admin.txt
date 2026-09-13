@@ -1,0 +1,23 @@
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+----------------------------------------------
+
+Reboot App
+
+----------------------------------------------
+
+SELECT table_name
+FROM information_schema.tables
+WHERE table_schema = 'public'
+ORDER BY table_name;
+
+-------------------------------------------
+
+Afou ftiaksoume admin sto 11
+
+UPDATE users
+SET role = 'ADMIN'
+WHERE username = 'admin_test';
+
+----------------------------------------------

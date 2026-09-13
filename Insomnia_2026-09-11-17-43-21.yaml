@@ -1,0 +1,3865 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Cinema Management - Final Tests
+meta:
+  id: wrk_3b3895cacc0846c49505ee547004b1df
+  created: 1789111631979
+  modified: 1789111654997
+  description: ""
+collection:
+  - url: http://localhost:8080/users/register
+    name: 01 - Register User - SUCCESS
+    meta:
+      id: req_f41eb4445b454645ae049051a58b305a
+      created: 1789116323671
+      modified: 1789116342299
+      isPrivate: false
+      description: ""
+      sortKey: -1789116323671
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "fullName": "Test User",
+          "password": "Test123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/register
+    name: 02 - Register User - DUPLICATE USERNAME
+    meta:
+      id: req_9c29436e3a2242008939db998c00d29d
+      created: 1789116374851
+      modified: 1789116448406
+      isPrivate: false
+      description: ""
+      sortKey: -1789116374851
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "fullName": "Another User",
+          "password": "Another123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/register
+    name: 03 — Register User - WEAK PASSWORD
+    meta:
+      id: req_5552cab116d24de48fc9a422baea3ab1
+      created: 1789116449594
+      modified: 1789116467581
+      isPrivate: false
+      description: ""
+      sortKey: -1789116449594
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "weak_user",
+          "fullName": "Weak Password User",
+          "password": "password"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/register
+    name: 04 — Register User - INVALID USERNAME
+    meta:
+      id: req_cede03767b4f43a5b166d6c683cb0dca
+      created: 1789116493185
+      modified: 1789118082329
+      isPrivate: false
+      description: ""
+      sortKey: -1789116493185
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "ab",
+          "fullName": "Invalid Username User",
+          "password": "Valid123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 05 — Login - SUCCESS
+    meta:
+      id: req_f5e90e21d0164ad09266ce32a4eee504
+      created: 1789116536857
+      modified: 1789118085026
+      isPrivate: false
+      description: ""
+      sortKey: -1789116536857
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "password": "Test123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 06 — Login - WRONG PASSWORD
+    meta:
+      id: req_84a2a3f65c11487c9d85e5a24b3d6ffc
+      created: 1789116598180
+      modified: 1789116615788
+      isPrivate: false
+      description: ""
+      sortKey: -1789116598180
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "password": "Wrong123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 07 — Login - UNKNOWN USER
+    meta:
+      id: req_1f6d3e77d7894ea28e7e08c3fb3e27c0
+      created: 1789116652593
+      modified: 1789116673840
+      isPrivate: false
+      description: ""
+      sortKey: -1789116652593
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "unknown_user",
+          "password": "Test123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 08 — Login - WRONG PASSWORD - ATTEMPT 2
+    meta:
+      id: req_9c519489d65140f6a39670329cf34f19
+      created: 1789116732752
+      modified: 1789116751549
+      isPrivate: false
+      description: ""
+      sortKey: -1789116732752
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "password": "Wrong123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 09 — Login - WRONG PASSWORD - ATTEMPT 3
+    meta:
+      id: req_b8ee4561e4a14317a9d5568c82f91d21
+      created: 1789116774287
+      modified: 1789116801608
+      isPrivate: false
+      description: ""
+      sortKey: -1789116774287
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "password": "Wrong123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 10 — Login - INACTIVE USER
+    meta:
+      id: req_a94ec2b60f144ca88e47ebdac65a4fba
+      created: 1789116827806
+      modified: 1789116844944
+      isPrivate: false
+      description: ""
+      sortKey: -1789116827806
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "password": "Test123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/register
+    name: 11 — Register Admin Test User
+    meta:
+      id: req_f0d68f5346e74eac996ce302b68ecd67
+      created: 1789116878722
+      modified: 1789116895637
+      isPrivate: false
+      description: ""
+      sortKey: -1789116878722
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "admin_test",
+          "fullName": "Admin Test",
+          "password": "Admin123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 12 - Login ADMIN - SUCCESS
+    meta:
+      id: req_5580bff2a7f743fe98367c7aad31e27b
+      created: 1789117020380
+      modified: 1789117050133
+      isPrivate: false
+      description: ""
+      sortKey: -1789117020380
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "admin_test",
+          "password": "Admin123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1/activate
+    name: 13 — Activate User - SUCCESS
+    meta:
+      id: req_2283c4c26c08400aa9f7b2cb9dbc5684
+      created: 1789117064560
+      modified: 1789118128069
+      isPrivate: false
+      description: Admin Token
+      sortKey: -1789117064560
+    method: PATCH
+    authentication:
+      type: bearer
+      token: b4eac027-471c-4671-9089-2e135a4b473b
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 14A - Login USER after reactivation
+    meta:
+      id: req_eabbe483a9ac4283b8857d7aa999d2a5
+      created: 1789117173167
+      modified: 1789118160042
+      isPrivate: false
+      description: User Token B
+      sortKey: -1789117173167
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "password": "Test123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1/activate
+    name: 14 — Activate User - FORBIDDEN (non-ADMIN)
+    meta:
+      id: req_81b6624596e346d598bc7123fc280189
+      created: 1789117212526
+      modified: 1789118196518
+      isPrivate: false
+      description: User Token B
+      sortKey: -1789117212526
+    method: PATCH
+    authentication:
+      type: bearer
+      token: 21bbbda5-bbf8-43d5-bdbb-6133dbed77ee
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1/deactivate
+    name: 15 — Deactivate User - SUCCESS
+    meta:
+      id: req_48a499e467a94379a31875ef63328b3c
+      created: 1789117354999
+      modified: 1789118209015
+      isPrivate: false
+      description: Admin Token
+      sortKey: -1789117354999
+    method: PATCH
+    authentication:
+      type: bearer
+      token: b4eac027-471c-4671-9089-2e135a4b473b
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/validate-token
+    name: 16 — Validate Token after Deactivate - INVALID
+    meta:
+      id: req_bc57efbbd3fb455e8a244444cd7a31fd
+      created: 1789117388079
+      modified: 1789117427163
+      isPrivate: false
+      description: ""
+      sortKey: -1789117388079
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "token": "21bbbda5-bbf8-43d5-bdbb-6133dbed77ee"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1/activate
+    name: 17 — Activate User again - SUCCESS
+    meta:
+      id: req_d69c3eccebcf486da2374711aeab8da6
+      created: 1789117459770
+      modified: 1789118223105
+      isPrivate: false
+      description: Admin Token
+      sortKey: -1789117459770
+    method: PATCH
+    authentication:
+      type: bearer
+      token: b4eac027-471c-4671-9089-2e135a4b473b
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 18 — Login USER after reactivation - SUCCESS
+    meta:
+      id: req_a2156425538747128b81c205d4f5d13d
+      created: 1789117494539
+      modified: 1789118240344
+      isPrivate: false
+      description: User Token C
+      sortKey: -1789117494539
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "password": "Test123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1
+    name: 19 — Update User - SUCCESS
+    meta:
+      id: req_30d5fbee9b9a42b1bda06e74c4c3827b
+      created: 1789117497535
+      modified: 1789118257490
+      isPrivate: false
+      description: User Token C
+      sortKey: -1789117497535
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "fullName": "Updated Test User"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 4d1c9fef-5da9-49f7-9d19-a6e076bcc28d
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/2
+    name: 20 — Update User - FORBIDDEN (wrong user)
+    meta:
+      id: req_5833f9f586b54d93a3286953e7b47a91
+      created: 1789117499372
+      modified: 1789118277532
+      isPrivate: false
+      description: User Token C
+      sortKey: -1789117499372
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "admin_test",
+          "fullName": "Changed By Wrong User"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 4d1c9fef-5da9-49f7-9d19-a6e076bcc28d
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1/change-password
+    name: 21 — Change Password - SUCCESS
+    meta:
+      id: req_4242973115894eddbd0126b49ba26dd7
+      created: 1789117500407
+      modified: 1789118297024
+      isPrivate: false
+      description: User Token C
+      sortKey: -1789117500407
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "oldPassword": "Test123!",
+          "newPassword": "NewTest123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 4d1c9fef-5da9-49f7-9d19-a6e076bcc28d
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/validate-token
+    name: 22 — Validate Old Token After Password Change - ERROR
+    meta:
+      id: req_4926d23abb4e4c45862a07bae53917c8
+      created: 1789117501494
+      modified: 1789118344975
+      isPrivate: false
+      description: Old User Token C
+      sortKey: -1789117501494
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "token": "4d1c9fef-5da9-49f7-9d19-a6e076bcc28d"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 23A — Login USER with New Password
+    meta:
+      id: req_f7b0596431ed4238b172590a47f96290
+      created: 1789117507053
+      modified: 1789118425203
+      isPrivate: false
+      description: User Token D
+      sortKey: -1789117507053
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "password": "NewTest123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1/change-password
+    name: 23 — Change Password - WRONG CURRENT PASSWORD
+    meta:
+      id: req_32bc5f0dfceb4ce397b871f54c42972e
+      created: 1789117508024
+      modified: 1789118527998
+      isPrivate: false
+      description: User Token D
+      sortKey: -1789117508024
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "oldPassword": "Wrong123!",
+          "newPassword": "Another123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 2ecfe80d-620e-4c86-973b-6f9e3ad39129
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1/change-password
+    name: 24 — Change Password - WEAK NEW PASSWORD
+    meta:
+      id: req_6dea7fcfcba24d7a87905c516cd92d26
+      created: 1789117624659
+      modified: 1789118594692
+      isPrivate: false
+      description: User Token D
+      sortKey: -1789117624659
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "oldPassword": "NewTest123!",
+          "newPassword": "weak"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 2ecfe80d-620e-4c86-973b-6f9e3ad39129
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1/change-password
+    name: 25 — Change Password - SAME PASSWORD
+    meta:
+      id: req_c944c74ce36c4d00bc0d903324459969
+      created: 1789117626878
+      modified: 1789118671685
+      isPrivate: false
+      description: User Token D
+      sortKey: -1789117626879
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "oldPassword": "NewTest123!",
+          "newPassword": "NewTest123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 2ecfe80d-620e-4c86-973b-6f9e3ad39129
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/2/change-password
+    name: 26 — Change Password - FORBIDDEN (wrong user)
+    meta:
+      id: req_10b619373eae4238809ab03d607f8cb0
+      created: 1789117628431
+      modified: 1789118727076
+      isPrivate: false
+      description: User Token D
+      sortKey: -1789117628431
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "oldPassword": "Admin123!",
+          "newPassword": "NewAdmin123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 2ecfe80d-620e-4c86-973b-6f9e3ad39129
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/logout
+    name: 27 — Logout - SUCCESS
+    meta:
+      id: req_b100c3d2d68440698057c5b22a9a8f31
+      created: 1789117629381
+      modified: 1789118787202
+      isPrivate: false
+      description: Old User Token D
+      sortKey: -1789117629381
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "token": "2ecfe80d-620e-4c86-973b-6f9e3ad39129"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/validate-token
+    name: 28  Validate Token after Logout - ERROR
+    meta:
+      id: req_0d696c10e8d0475e82d4ef22b7a196a9
+      created: 1789117630208
+      modified: 1789118946490
+      isPrivate: false
+      description: Old User Token D
+      sortKey: -1789117630208
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "token": "2ecfe80d-620e-4c86-973b-6f9e3ad39129"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 29A — Login USER after Logout
+    meta:
+      id: req_527f52fee3fd42a0805adfb388ffdea6
+      created: 1789117631038
+      modified: 1789118990828
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789117631038
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "user_test",
+          "password": "NewTest123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/1/deactivate
+    name: 29 — Deactivate User - FORBIDDEN (non-ADMIN)
+    meta:
+      id: req_67bb7887692c44d999579792c8b0f1c8
+      created: 1789117631786
+      modified: 1789119028099
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789117631786
+    method: PATCH
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/2
+    name: 30 — Delete User - FORBIDDEN (non-ADMIN)
+    meta:
+      id: req_b829824e988f4f8391340586fb11cf25
+      created: 1789117632634
+      modified: 1789119083850
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789117632634
+    method: DELETE
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+      prefix: ""
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/999
+    name: 31 — Delete User - USER NOT FOUND
+    meta:
+      id: req_2afa58d94f3340fd9a16d82baf129631
+      created: 1789117633401
+      modified: 1789119145263
+      isPrivate: false
+      description: Admin Token
+      sortKey: -1789117633401
+    method: DELETE
+    authentication:
+      type: bearer
+      token: b4eac027-471c-4671-9089-2e135a4b473b
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/register
+    name: 32A — Register Temporary User
+    meta:
+      id: req_25bd8b0b6ac34a04a5028725901b43c5
+      created: 1789117634154
+      modified: 1789119233418
+      isPrivate: false
+      description: ""
+      sortKey: -1789117634154
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "delete_test",
+          "fullName": "Delete Test User",
+          "password": "Delete123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/3
+    name: 32 — Delete User - SUCCESS
+    meta:
+      id: req_ec54362e67274c6398b6bb38e9d475ff
+      created: 1789118822534
+      modified: 1789119348916
+      isPrivate: false
+      description: Admin Token
+      sortKey: -1789118822534
+    method: DELETE
+    authentication:
+      type: bearer
+      token: b4eac027-471c-4671-9089-2e135a4b473b
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 33 — Create Program - SUCCESS
+    meta:
+      id: req_9d3abbda2fc34b99853350bf5a4936c7
+      created: 1789118823576
+      modified: 1789119430039
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118823576
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Cinema Test Program",
+          "description": "Program for complete API testing",
+          "startDate": "2027-02-01",
+          "endDate": "2027-02-10"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 34 — Create Program - INVALID DATES
+    meta:
+      id: req_dd314b77f6ea434d946c4909db136adf
+      created: 1789118824471
+      modified: 1789119516540
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118824471
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Invalid Date Program",
+          "description": "Program with invalid dates",
+          "startDate": "2027-02-10",
+          "endDate": "2027-02-01"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 35 — Create Program - DUPLICATE NAME
+    meta:
+      id: req_3da608030b444678964748473afa5398
+      created: 1789118825324
+      modified: 1789119583774
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118825324
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Cinema Test Program",
+          "description": "Duplicate name test",
+          "startDate": "2027-03-01",
+          "endDate": "2027-03-10"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 36 — Create Program - MISSING DESCRIPTION
+    meta:
+      id: req_6842323a2d3c4c98a9321bd92ddea769
+      created: 1789118826158
+      modified: 1789119651357
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118826158
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Missing Description Program",
+          "description": "",
+          "startDate": "2027-04-01",
+          "endDate": "2027-04-10"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 37 — Create Program - MISSING DATES
+    meta:
+      id: req_eea71484897e4e0182617a4141e8f38e
+      created: 1789118827110
+      modified: 1789119714498
+      isPrivate: false
+      description: Uset Token E
+      sortKey: -1789118827110
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Missing Dates Program",
+          "description": "Program without dates",
+          "startDate": null,
+          "endDate": null
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/1
+    name: 38 — Get Program by ID - SUCCESS
+    meta:
+      id: req_7d1c61a180f645578382a169c120667f
+      created: 1789118827874
+      modified: 1789119768294
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118827874
+    method: GET
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/999
+    name: 39 — Get Program - NOT FOUND
+    meta:
+      id: req_7c532f7059a54276a936a18b0101d266
+      created: 1789118828841
+      modified: 1789119811048
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118828841
+    method: GET
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/1
+    name: 40 — Update Program - SUCCESS
+    meta:
+      id: req_24a43eedccb549358fb651236a02a73a
+      created: 1789118829571
+      modified: 1789119863960
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118829571
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Cinema Test Program Updated",
+          "description": "Updated program for complete API testing",
+          "startDate": "2027-02-02",
+          "endDate": "2027-02-12"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/register
+    name: 41A — Register Outsider User
+    meta:
+      id: req_ae8aa108a1934080b3ccbffc4d96c490
+      created: 1789118830293
+      modified: 1789119946313
+      isPrivate: false
+      description: ""
+      sortKey: -1789118830293
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "outsider_test",
+          "fullName": "Outsider Test User",
+          "password": "Outsider123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 41B — Login Outsider - SUCCESS
+    meta:
+      id: req_fcc17b2c715f42e99bdda99e579e8cd2
+      created: 1789118831098
+      modified: 1789120009025
+      isPrivate: false
+      description: User Token F
+      sortKey: -1789118831098
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "outsider_test",
+          "password": "Outsider123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/1
+    name: 41 — Update Program - FORBIDDEN (wrong user)
+    meta:
+      id: req_aa96ad3935c64518a5df361bc4ebc649
+      created: 1789118831924
+      modified: 1789120063658
+      isPrivate: false
+      description: User Token F
+      sortKey: -1789118831924
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Unauthorized Update",
+          "description": "This update should fail",
+          "startDate": "2027-02-02",
+          "endDate": "2027-02-12"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 86bd9d44-4f4b-4840-9d67-1723d22e2d22
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs?name=Cinema
+    name: 42 — Search Programs - SUCCESS
+    meta:
+      id: req_a9b495990f4a4a728fc3c7749ef17226
+      created: 1789118832720
+      modified: 1789120121345
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118832720
+    method: GET
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs?fromDate=2027-02-01&toDate=2027-02-28
+    name: 43 — Search Programs - DATE FILTERS
+    meta:
+      id: req_3890884c0a4d45ab919ab0bf1b193429
+      created: 1789118833567
+      modified: 1789120186326
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118833567
+    method: GET
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs?name=DoesNotExist
+    name: 44 — Search Programs - NO RESULTS
+    meta:
+      id: req_a602dafdb50e4016aba54fca5d8413fd
+      created: 1789118834332
+      modified: 1789120240704
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118834332
+    method: GET
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 45 — Search Programs - VISITOR / NO TOKEN
+    meta:
+      id: req_16f95459afe84d479aa23447291a4332
+      created: 1789118835142
+      modified: 1789120275956
+      isPrivate: false
+      description: ""
+      sortKey: -1789118835142
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/1/state
+    name: "46 — Change Program State: CREATED → SUBMISSION - SUCCESS"
+    meta:
+      id: req_4c81eb50f05d4b15921e21b3bb4e0a90
+      created: 1789118835949
+      modified: 1789120394261
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789118835949
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "SUBMISSION"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/1/state
+    name: 47 — Change Program State - INVALID TRANSITION
+    meta:
+      id: req_2a69cbf287594c0e8b7bc883a2c2d061
+      created: 1789119372577
+      modified: 1789120455972
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119372577
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "REVIEW"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/1/state
+    name: "48 — Change Program State: SUBMISSION → ASSIGNMENT - SUCCESS"
+    meta:
+      id: req_4d1d602c58c747b28b884cea4e1512d1
+      created: 1789119373549
+      modified: 1789120533849
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119373549
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "ASSIGNMENT"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/1/state
+    name: "49 — Change Program State: ASSIGNMENT → REVIEW - SUCCESS"
+    meta:
+      id: req_81a777253fc64f69afa5ddc44663df6f
+      created: 1789119374288
+      modified: 1789120625177
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119374288
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "REVIEW"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/1/state
+    name: "50 — Change Program State: REVIEW → SCHEDULING - SUCCESS"
+    meta:
+      id: req_ff74e415fbf641e49fa61a69c81f7b1d
+      created: 1789119375078
+      modified: 1789120683309
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119375078
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "SCHEDULING"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 51 — Create Program 2 for Screening Workflow - SUCCESS
+    meta:
+      id: req_78b06f21ed32427e839112f88caf0448
+      created: 1789119375806
+      modified: 1789120782282
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119375806
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Screening Workflow Program",
+          "description": "Program used for complete screening workflow testing",
+          "startDate": "2027-05-01",
+          "endDate": "2027-05-15"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/2/state
+    name: "52 — Program 2: CREATED → SUBMISSION"
+    meta:
+      id: req_c539f3a9a2cf4081ad308b7cb3ad101d
+      created: 1789119376620
+      modified: 1789120879636
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119376620
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "SUBMISSION"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings
+    name: 53 — Create Screening - SUCCESS
+    meta:
+      id: req_f0159478ae7c4695b30280d80e2a5c7e
+      created: 1789119377327
+      modified: 1789120948019
+      isPrivate: false
+      description: User Token F
+      sortKey: -1789119377327
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "movieTitle": "Test Movie One",
+          "programId": 2
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 86bd9d44-4f4b-4840-9d67-1723d22e2d22
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/1/submit
+    name: 54 — Submit Incomplete Screening - ERROR
+    meta:
+      id: req_054ba766e8be41f28e77d58614574494
+      created: 1789119378102
+      modified: 1789121007364
+      isPrivate: false
+      description: User Token F
+      sortKey: -1789119378102
+    method: PATCH
+    authentication:
+      type: bearer
+      token: 86bd9d44-4f4b-4840-9d67-1723d22e2d22
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/1
+    name: 55 — Update Screening - SUCCESS
+    meta:
+      id: req_29be7f6bfabc4d2ca4b90f15c1d9c3a2
+      created: 1789119378821
+      modified: 1789121089508
+      isPrivate: false
+      description: User Token F
+      sortKey: -1789119378821
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "movieTitle": "Test Movie One",
+          "cast": "Actor One, Actor Two",
+          "genres": "Drama",
+          "durationMinutes": 100,
+          "auditorium": "Hall A",
+          "startTime": "2027-05-05T18:00:00"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 86bd9d44-4f4b-4840-9d67-1723d22e2d22
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/1
+    name: 56 — Update Screening - FORBIDDEN (wrong user)
+    meta:
+      id: req_60159e3155a64717b3c4c6b6e9711ca8
+      created: 1789119379580
+      modified: 1789121169640
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119379580
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "movieTitle": "Unauthorized Update",
+          "cast": "Wrong Actor",
+          "genres": "Drama",
+          "durationMinutes": 90,
+          "auditorium": "Hall X",
+          "startTime": "2027-05-05T20:00:00"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/1/submit
+    name: 57 — Submit Screening - SUCCESS
+    meta:
+      id: req_b9a625f5fdee4c1493933ef6d996fedc
+      created: 1789119380481
+      modified: 1789121244694
+      isPrivate: false
+      description: User Token F
+      sortKey: -1789119380481
+    method: PATCH
+    authentication:
+      type: bearer
+      token: 86bd9d44-4f4b-4840-9d67-1723d22e2d22
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/1/submit
+    name: 58 — Submit Screening Again - INVALID STATE
+    meta:
+      id: req_c81218ab08dd41599ae9c4e1feab5f8e
+      created: 1789119381160
+      modified: 1789121310626
+      isPrivate: false
+      description: User Token F
+      sortKey: -1789119381160
+    method: PATCH
+    authentication:
+      type: bearer
+      token: 86bd9d44-4f4b-4840-9d67-1723d22e2d22
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/2/state
+    name: "59 — Program 2: SUBMISSION → ASSIGNMENT"
+    meta:
+      id: req_2c23846bea0f4f24a44c17c1dc54987e
+      created: 1789119382049
+      modified: 1789121389809
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119382049
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "ASSIGNMENT"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/register
+    name: 60A — Register STAFF Test User
+    meta:
+      id: req_a34b3a0a6b104b26bbbb314df4b22155
+      created: 1789119382819
+      modified: 1789121464272
+      isPrivate: false
+      description: ""
+      sortKey: -1789119382819
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "staff_test",
+          "fullName": "Staff Test User",
+          "password": "Staff123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/2/staff/5
+    name: 60B — Add STAFF after SUBMISSION - ERROR
+    meta:
+      id: req_44d161e9aa7444b28bab6cd6eb1b30bf
+      created: 1789119383729
+      modified: 1789121536199
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119383729
+    method: POST
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 61 — Create Program 3 - SUCCESS
+    meta:
+      id: req_738a4014dfcc42b494a9d402cf716f94
+      created: 1789119384541
+      modified: 1789121622911
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789119384541
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "name": "Full Screening Workflow Program",
+          "description": "Program for complete staff and screening workflow testing",
+          "startDate": "2027-06-01",
+          "endDate": "2027-06-15"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/staff/5
+    name: 62 — Add STAFF to Program 3 - SUCCESS
+    meta:
+      id: req_1f0f8036d0e24da38635b88e2959767f
+      created: 1789121106632
+      modified: 1789121683769
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121106632
+    method: POST
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/staff/5
+    name: 63 — Add Same STAFF Again - ERROR
+    meta:
+      id: req_dcc0c9d115f447afa0c7c68f87ec11b6
+      created: 1789121107629
+      modified: 1789121734457
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121107629
+    method: POST
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/programmers/4
+    name: 64 — Add PROGRAMMER to Program 3 - SUCCESS
+    meta:
+      id: req_8519a55ce44142a894341780c29b7b00
+      created: 1789121108601
+      modified: 1789121786106
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121108601
+    method: POST
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/programmers/4
+    name: 65 — Add Same PROGRAMMER Again - ERROR
+    meta:
+      id: req_72569655d60046cb8c73096ca58560c0
+      created: 1789121109556
+      modified: 1789121834496
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121109556
+    method: POST
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/state
+    name: "66 — Program 3: CREATED → SUBMISSION"
+    meta:
+      id: req_b6a2e1f117fa47b1a738dc252abc626b
+      created: 1789121110397
+      modified: 1789121900613
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121110397
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "SUBMISSION"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/register
+    name: 67A — Register Submitter User
+    meta:
+      id: req_13d81f95ac0b415c94ee852824b313c6
+      created: 1789121111388
+      modified: 1789121952062
+      isPrivate: false
+      description: ""
+      sortKey: -1789121111388
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "submitter_test",
+          "fullName": "Submitter Test User",
+          "password": "Submitter123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 67B — Login Submitter - SUCCESS
+    meta:
+      id: req_1b9cc2192a8e4d49a2bcbe7881d1f7b6
+      created: 1789121112336
+      modified: 1789123180246
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789121112336
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "submitter_test",
+          "password": "Submitter123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings
+    name: 67 — Create Screening in Program 3 - SUCCESS
+    meta:
+      id: req_93ff1b4e83e34686864f446cebdf7d87
+      created: 1789121113173
+      modified: 1789122081222
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789121113173
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "movieTitle": "Full Workflow Movie",
+          "cast": "Actor Alpha, Actor Beta",
+          "genres": "Drama",
+          "durationMinutes": 120,
+          "programId": 3
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/submit
+    name: 68 — Submit Screening - MISSING AUDITORIUM - ERROR
+    meta:
+      id: req_15fa38f538b149169e413810207f5013
+      created: 1789121114179
+      modified: 1789122239382
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789121114179
+    method: PATCH
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2
+    name: 69 — Update Screening 2 with Scheduling Data - SUCCESS
+    meta:
+      id: req_82f0d06fe4e044289da94ea36cddab36
+      created: 1789121115090
+      modified: 1789122281680
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789121115090
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "movieTitle": "Full Workflow Movie",
+          "cast": "Actor Alpha, Actor Beta",
+          "genres": "Drama",
+          "durationMinutes": 120,
+          "auditorium": "Hall B",
+          "startTime": "2027-06-05T18:00:00"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/submit
+    name: 70 — Submit Screening 2 - SUCCESS
+    meta:
+      id: req_87f9c1a383ca4fdfabe00ccdbf2cef85
+      created: 1789121115954
+      modified: 1789122382307
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789121115954
+    method: PATCH
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/state
+    name: "71 — Program 3: SUBMISSION → ASSIGNMENT"
+    meta:
+      id: req_12f90780c8404b8fb570b9ffead5dc42
+      created: 1789121116632
+      modified: 1789122453461
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121116632
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "ASSIGNMENT"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/assign/5
+    name: 72 — Assign STAFF to Screening 2 - SUCCESS
+    meta:
+      id: req_92c49ee92c14469f812f9eb4c84f0995
+      created: 1789121117614
+      modified: 1789122519750
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121117614
+    method: PATCH
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 73A — Login STAFF - SUCCESS
+    meta:
+      id: req_98e37d2617554cae9bf4f13694256a07
+      created: 1789121118001
+      modified: 1789123171332
+      isPrivate: false
+      description: User Token H
+      sortKey: -1789121118001
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "staff_test",
+          "password": "Staff123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/state
+    name: "73 — Program 3: ASSIGNMENT → REVIEW"
+    meta:
+      id: req_b55dd3d819fc401e8b5505fcd58f0a97
+      created: 1789121118555
+      modified: 1789122644629
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121118555
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "REVIEW"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/review
+    name: 74 — Review Screening 2 - SUCCESS
+    meta:
+      id: req_634fd736673c42a499414bc30a31e150
+      created: 1789121119102
+      modified: 1789122714350
+      isPrivate: false
+      description: User Token H
+      sortKey: -1789121119102
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "comments": "Good movie submission with complete information",
+          "score": 8
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: d2f9ac9d-dde7-4e4f-87a1-dd954a406211
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/review
+    name: 75 — Review Screening Again - INVALID STATE
+    meta:
+      id: req_2bf87b8912a8456ab806e274fbe18339
+      created: 1789121119722
+      modified: 1789122805316
+      isPrivate: false
+      description: User Token H
+      sortKey: -1789121119722
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "comments": "Second review attempt",
+          "score": 9
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: d2f9ac9d-dde7-4e4f-87a1-dd954a406211
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/state
+    name: "76 — Program 3: REVIEW → SCHEDULING"
+    meta:
+      id: req_6fcd100c22054e52835179b6da76a2eb
+      created: 1789121120329
+      modified: 1789122921486
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121120329
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "SCHEDULING"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/approve
+    name: 77 — Approve Screening - FORBIDDEN (PROGRAMMER)
+    meta:
+      id: req_9182723495fa42129d22f454bc2fe6e7
+      created: 1789121120927
+      modified: 1789123015605
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121120927
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "notes": "Approved for scheduling"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/approve
+    name: 78 — Approve Screening 2 - SUCCESS
+    meta:
+      id: req_844909dea22748c889cf71ce06cfa761
+      created: 1789121121604
+      modified: 1789123063906
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789121121604
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "approvalNotes": "Approved with minor final changes"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/state
+    name: "79 — Program 3: SCHEDULING → FINAL_SUBMISSION"
+    meta:
+      id: req_f166bb65a9a94592a82b57ae64c4c24f
+      created: 1789121122383
+      modified: 1789123119212
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789121122383
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "FINAL_SUBMISSION"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/final-submit
+    name: 80 — Final Submit Screening 2 - SUCCESS
+    meta:
+      id: req_0cf11e53976f47899279bff0e2a3a123
+      created: 1789122315854
+      modified: 1789123207820
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122315854
+    method: PATCH
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/state
+    name: "81 — Program 3: FINAL_SUBMISSION → DECISION"
+    meta:
+      id: req_9eca5e7d22c9480593ca5d68e0405f24
+      created: 1789122316866
+      modified: 1789123284799
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789122316866
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "DECISION"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/schedule
+    name: 82 — Schedule Screening 2 - SUCCESS
+    meta:
+      id: req_03b0c8c0a1ec44c9a4af8b95a8d514ce
+      created: 1789122317525
+      modified: 1789123347367
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789122317525
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "auditorium": "Hall B",
+          "startTime": "2027-06-05T18:00:00",
+          "endTime": "2027-06-05T20:00:00"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3/state
+    name: "83 — Program 3: DECISION → ANNOUNCED"
+    meta:
+      id: req_231bf49b7dc147c7824a2ea0c22a8471
+      created: 1789122319094
+      modified: 1789123458381
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789122319094
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "ANNOUNCED"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/3
+    name: 84 — Get Announced Program as Visitor - SUCCESS
+    meta:
+      id: req_516fb1e5b7ee4c90854ec21d7e20bea5
+      created: 1789122319160
+      modified: 1789123467894
+      isPrivate: false
+      description: ""
+      sortKey: -1789122319160
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 85 — Search Programs as Visitor - SUCCESS
+    meta:
+      id: req_83163ce29685435a8dd06d4403a0330d
+      created: 1789122320057
+      modified: 1789123501770
+      isPrivate: false
+      description: ""
+      sortKey: -1789122320057
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/public
+    name: 86 — Get Public Screenings - SUCCESS
+    meta:
+      id: req_fb14ae7d847f4d5780aa23a7b7b28d17
+      created: 1789122320712
+      modified: 1789123539066
+      isPrivate: false
+      description: ""
+      sortKey: -1789122320712
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/public/program/3
+    name: 87 — Non-existent Endpoint - ERROR
+    meta:
+      id: req_b3b4195fdafe42f5a304f6115774a911
+      created: 1789122321520
+      modified: 1789123699135
+      isPrivate: false
+      description: ""
+      sortKey: -1789122321520
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2
+    name: 88 — Get Screening by ID - SUCCESS
+    meta:
+      id: req_20061a734e1d47cd93e21bfe7c3ad6a8
+      created: 1789122322206
+      modified: 1789123656826
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122322206
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/999
+    name: 89 — Get Screening by ID - NOT FOUND
+    meta:
+      id: req_1b0149501948478a93054ba7221c8e4f
+      created: 1789122322932
+      modified: 1789123741277
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122322932
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/search?movieTitle=Full
+    name: 90 — Search Screenings by Title - SUCCESS
+    meta:
+      id: req_c4f4e8fdd79e44dbaf1b5b0048d6c55a
+      created: 1789122323565
+      modified: 1789123814743
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122323565
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/search?cast=Alpha
+    name: 91 — Search Screenings by Cast - SUCCESS
+    meta:
+      id: req_42897deb2f8d4837b2410841b49b6cb0
+      created: 1789122324349
+      modified: 1789123859715
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122324349
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/search?genre=Drama
+    name: 92 — Search Screenings by Genre - SUCCESS
+    meta:
+      id: req_15194b6872074534846c038fef4ca368
+      created: 1789122324974
+      modified: 1789123912384
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122324974
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/search?fromDate=2027-06-05T00:00:00&toDate=2027-06-05T23:59:59
+    name: 93 — Search Screenings by Date Range - SUCCESS
+    meta:
+      id: req_db303493e46d478ca65388ddf2529104
+      created: 1789122325794
+      modified: 1789124020712
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122325794
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/search?movieTitle=Full&cast=Alpha&genre=Drama
+    name: 94 — Search Screenings with Multiple Filters - SUCCESS
+    meta:
+      id: req_6974ed98c36040649154d0a77d886f32
+      created: 1789122326404
+      modified: 1789124091397
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122326404
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/search?movieTitle=DoesNotExist
+    name: 95 — Search Screenings - NO RESULTS
+    meta:
+      id: req_0ba6a54a44694994ad6a588579f96960
+      created: 1789122327172
+      modified: 1789124151465
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122327172
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings
+    name: 96 — Get Visible Screenings - USER
+    meta:
+      id: req_3c22f1acd52d49519b655d11fe16788f
+      created: 1789122327745
+      modified: 1789124205451
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122327745
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings
+    name: 97 — Get Visible Screenings - STAFF
+    meta:
+      id: req_671540464ee24cefbf4a276d293323e9
+      created: 1789122328434
+      modified: 1789124250037
+      isPrivate: false
+      description: User Token H
+      sortKey: -1789122328434
+    method: GET
+    authentication:
+      type: bearer
+      token: d2f9ac9d-dde7-4e4f-87a1-dd954a406211
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings
+    name: 98 — Get Visible Screenings - PROGRAMMER
+    meta:
+      id: req_6661e73e473342dea44313ab1b4be628
+      created: 1789122329155
+      modified: 1789124314110
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789122329155
+    method: GET
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings
+    name: 99 — Get Screenings Without Token - UNAUTHORIZED
+    meta:
+      id: req_a7f23ea9f2714e30b456e4de7b622555
+      created: 1789122330020
+      modified: 1789124346010
+      isPrivate: false
+      description: ""
+      sortKey: -1789122330020
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2
+    name: 100 — Get Screening with Invalid Token - UNAUTHORIZED
+    meta:
+      id: req_12bb6803217648eab102d749061807dd
+      created: 1789122330966
+      modified: 1789124406628
+      isPrivate: false
+      description: Invalid Token
+      sortKey: -1789122330966
+    method: GET
+    authentication:
+      type: bearer
+      token: xzfbhxgcnhfhgxnvhcmnvhcmbhcmhcmbhc
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/search?movieTitle=Full
+    name: 101 — Search Screenings Without Token - UNAUTHORIZED
+    meta:
+      id: req_3a6b37bb89f14e02b6bd703c18ff6f95
+      created: 1789122333718
+      modified: 1789124447347
+      isPrivate: false
+      description: ""
+      sortKey: -1789122333718
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/register
+    name: 102A — Register Second STAFF User
+    meta:
+      id: req_1bc7a5439aa84377a2cfc125e5426dc3
+      created: 1789122334352
+      modified: 1789124510032
+      isPrivate: false
+      description: ""
+      sortKey: -1789122334352
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "staff_two",
+          "fullName": "Second Staff User",
+          "password": "StaffTwo123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 102B — Create Program 4 for Wrong-STAFF Test
+    meta:
+      id: req_011ce0cc4b3c4d58b8eb805e81fb5fa9
+      created: 1789122335631
+      modified: 1789124567130
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789122335631
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Wrong Staff Authorization Program",
+          "description": "Program used to test assigned staff authorization",
+          "startDate": "2027-07-01",
+          "endDate": "2027-07-10"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/4/staff/5
+    name: 102C — Add STAFF 1 to Program 4 - SUCCESS
+    meta:
+      id: req_7a04569d8a7046e1ade77df913fb4224
+      created: 1789122336466
+      modified: 1789124643673
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789122336466
+    method: POST
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/4/staff/7
+    name: 102D — Add STAFF 2 to Program 4 - SUCCESS
+    meta:
+      id: req_4d83e1ba50a74b2b9d576250feaabb39
+      created: 1789122337316
+      modified: 1789124700696
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789122337316
+    method: POST
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/4/state
+    name: "102E — Program 4: CREATED → SUBMISSION"
+    meta:
+      id: req_245c75e8291846bd9ac23745d681dc5b
+      created: 1789122338193
+      modified: 1789124768559
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789122338193
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "SUBMISSION"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings
+    name: 102F — Create Screening in Program 4 - SUCCESS
+    meta:
+      id: req_355dfc3561ae43d58a52a119e0e93046
+      created: 1789122338980
+      modified: 1789124842514
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789122338980
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "movieTitle": "Wrong Staff Test Movie",
+          "cast": "Actor X, Actor Y",
+          "genres": "Thriller",
+          "durationMinutes": 90,
+          "programId": 4
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/3
+    name: 102G — Update Screening 3 - SUCCESS
+    meta:
+      id: req_ef7486b1b37c450b8364e0806db54282
+      created: 1789124660280
+      modified: 1789124901999
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789124660280
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "movieTitle": "Wrong Staff Test Movie",
+          "cast": "Actor X, Actor Y",
+          "genres": "Thriller",
+          "durationMinutes": 90,
+          "auditorium": "Hall C",
+          "startTime": "2027-07-05T18:00:00"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/3/submit
+    name: 102H — Submit Screening 3 - SUCCESS
+    meta:
+      id: req_9b3e59b86c8c4d6d93779282123cbe4e
+      created: 1789124661151
+      modified: 1789124991750
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789124661151
+    method: PATCH
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/4/state
+    name: "102I — Program 4: SUBMISSION → ASSIGNMENT"
+    meta:
+      id: req_419f42daca9847dd9eb08b2c8591dd81
+      created: 1789124662056
+      modified: 1789125054749
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789124662056
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "ASSIGNMENT"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/3/assign/5
+    name: 102J — Assign Screening 3 to staff_test - SUCCESS
+    meta:
+      id: req_8409f5669cc64161ad4f16db8b197490
+      created: 1789124662797
+      modified: 1789125178470
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789124662797
+    method: PATCH
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/4/state
+    name: "102K — Program 4: ASSIGNMENT → REVIEW"
+    meta:
+      id: req_64d8f76e7fb44053bf55582fcc5550b9
+      created: 1789124663798
+      modified: 1789125216256
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789124663798
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "REVIEW"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/login
+    name: 102L-A — Login staff_two - SUCCESS
+    meta:
+      id: req_e50b9893e1e34b8cad11967361b02be7
+      created: 1789124664250
+      modified: 1789125284998
+      isPrivate: false
+      description: User Token I
+      sortKey: -1789124664250
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "username": "staff_two",
+          "password": "StaffTwo123!"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/3/review
+    name: 102L — Review Screening 3 - FORBIDDEN (wrong assigned STAFF)
+    meta:
+      id: req_86393c3343dd487197f52f8d36060084
+      created: 1789124665162
+      modified: 1789125347324
+      isPrivate: false
+      description: Uset Token I
+      sortKey: -1789124665162
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "comments": "Unauthorized review attempt",
+          "score": 7
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e20c47f3-baa0-4ed7-b556-b1799dcffbfa
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/3/review
+    name: Request 103 — Review Screening 3 - SUCCESS
+    meta:
+      id: req_4b2d65046bcf4f4db5b5b2cfeedc3fe1
+      created: 1789125067915
+      modified: 1789125410938
+      isPrivate: false
+      description: User Token H
+      sortKey: -1789125067915
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "comments": "Authorized review by assigned staff",
+          "score": 9
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: d2f9ac9d-dde7-4e4f-87a1-dd954a406211
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/4/state
+    name: "104 — Program 4: REVIEW → SCHEDULING"
+    meta:
+      id: req_aa75dfc5bf564757967754486ba84d86
+      created: 1789125068860
+      modified: 1789135757491
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789125068860
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "SCHEDULING"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/3/reject
+    name: 105 — Reject Screening 3 - SUCCESS
+    meta:
+      id: req_344ccab4aaf846d1868a87c141f1876c
+      created: 1789125070585
+      modified: 1789135905843
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789125070585
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "reason": "Rejected after review during scheduling phase"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/3/reject
+    name: 106 — Reject Screening Again - INVALID STATE
+    meta:
+      id: req_7fbef8e165204df5b7ddf42fa33718f2
+      created: 1789125071668
+      modified: 1789136174638
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789125071668
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "reason": "Second rejection attempt"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/3/withdraw
+    name: 107 — Withdraw Screening - INVALID STATE
+    meta:
+      id: req_b4f5237749a445ffa51442af73e19ba7
+      created: 1789125072788
+      modified: 1789136300795
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789125072788
+    method: DELETE
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 108A — Create Program 5 for Withdraw Test
+    meta:
+      id: req_886b99789d234241b00b1f172a508e79
+      created: 1789125073934
+      modified: 1789136384887
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789125073934
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Withdraw Test Program",
+          "description": "Program used to test screening withdrawal",
+          "startDate": "2027-08-01",
+          "endDate": "2027-08-10"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/5/state
+    name: "108B — Program 5: CREATED → SUBMISSION"
+    meta:
+      id: req_289c8ed7da6043c586a9212d3ac03473
+      created: 1789136203479
+      modified: 1789136500824
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789136203479
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "SUBMISSION"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings
+    name: 108C — Create Screening for Withdraw Test
+    meta:
+      id: req_8813776f62af46ae97ef4658202d5a6b
+      created: 1789136204340
+      modified: 1789136580273
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789136204340
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "movieTitle": "Withdraw Test Movie",
+          "cast": "Actor Withdraw",
+          "genres": "Drama",
+          "durationMinutes": 80,
+          "programId": 5
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/4/withdraw
+    name: 108D — Withdraw Screening 4 - SUCCESS
+    meta:
+      id: req_be05a2e11e084a8b847769df4ab9a7a0
+      created: 1789136205101
+      modified: 1789136694711
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789136205101
+    method: DELETE
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/4
+    name: 109 — Confirm Withdrawn Screening is Deleted
+    meta:
+      id: req_503c4211323a41c0bddb7c53c012ffa9
+      created: 1789136205901
+      modified: 1789136843452
+      isPrivate: false
+      description: User Token G
+      sortKey: -1789136205901
+    method: GET
+    authentication:
+      type: bearer
+      token: 571f5a34-0c32-4f9d-9c03-d2a191a9c42f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/final-submit
+    name: 110 — Final Submit - INVALID PROGRAM PHASE
+    meta:
+      id: req_7724a3c3b4c7447290ff3c08abf43cfd
+      created: 1789136206804
+      modified: 1789136974287
+      isPrivate: false
+      description: User Token H
+      sortKey: -1789136206804
+    method: PATCH
+    authentication:
+      type: bearer
+      token: d2f9ac9d-dde7-4e4f-87a1-dd954a406211
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/screenings/2/schedule
+    name: 111 — Schedule Screening Again - INVALID STATE
+    meta:
+      id: req_8f59c5e9dc3c4b38a1d9588320b17f5d
+      created: 1789136207397
+      modified: 1789137027505
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789136207397
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "auditorium": "Hall B",
+          "startTime": "2027-06-05T18:00:00",
+          "endTime": "2027-06-05T20:00:00"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/5/state
+    name: 112 — Program State Change - FORBIDDEN (wrong user)
+    meta:
+      id: req_86095b9572774a408ae60d5ee7d41da4
+      created: 1789136208338
+      modified: 1789137110362
+      isPrivate: false
+      description: User Token F
+      sortKey: -1789136208338
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "ASSIGNMENT"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: 86bd9d44-4f4b-4840-9d67-1723d22e2d22
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/5
+    name: 113 — Get Private Program - FORBIDDEN (outsider)
+    meta:
+      id: req_4f1204e91d344211aa43066990568881
+      created: 1789136209170
+      modified: 1789137209081
+      isPrivate: false
+      description: User Token F
+      sortKey: -1789136209170
+    method: GET
+    authentication:
+      type: bearer
+      token: 86bd9d44-4f4b-4840-9d67-1723d22e2d22
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/5
+    name: 114 — Delete Program - INVALID STATE
+    meta:
+      id: req_a82b2009d52c40a09fb7db9123f48deb
+      created: 1789136210046
+      modified: 1789137258994
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789136210046
+    method: DELETE
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs
+    name: 115A — Create Temporary Program
+    meta:
+      id: req_3eccfc9f3f7d4221bc73ec5e1ecbf996
+      created: 1789137175340
+      modified: 1789137374848
+      isPrivate: false
+      description: User Tag E
+      sortKey: -1789137175340
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Delete Program Test",
+          "description": "Temporary program for delete testing",
+          "startDate": "2027-09-01",
+          "endDate": "2027-09-05"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/6
+    name: 115 — Delete Program - SUCCESS
+    meta:
+      id: req_96afb86ce377443ba619b4465fa00df0
+      created: 1789137176360
+      modified: 1789137454716
+      isPrivate: false
+      description: User Totem E
+      sortKey: -1789137176360
+    method: DELETE
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/6
+    name: 116 — Confirm Deleted Program is Gone
+    meta:
+      id: req_91a57edc525c41729343b34fdfb55c01
+      created: 1789137177183
+      modified: 1789137564549
+      isPrivate: false
+      description: User Token E
+      sortKey: -1789137177183
+    method: GET
+    authentication:
+      type: bearer
+      token: e32d5460-0afc-451c-9f08-e9607a9dfc48
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/5/state
+    name: 117 — Protected Program Endpoint Without Authorization
+    meta:
+      id: req_8e93c39f1a9b42f49511c15b64cbffb9
+      created: 1789137178036
+      modified: 1789137617844
+      isPrivate: false
+      description: ""
+      sortKey: -1789137178036
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "ASSIGNMENT"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/programs/5/state
+    name: 118 — Protected Program Endpoint with Invalid Token
+    meta:
+      id: req_317148d1ebe04162b66e7b21f2e81336
+      created: 1789137179044
+      modified: 1789137677782
+      isPrivate: false
+      description: Invalid Token
+      sortKey: -1789137179044
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "newState": "ASSIGNMENT"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: xvzbvcbnvcz.mnxznfzj
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: ""
+    name: New Request
+    meta:
+      id: req_16f73f17ecb74c618434bf79b2f93c83
+      created: 1789137179791
+      modified: 1789137179791
+      isPrivate: false
+      description: ""
+      sortKey: -1789137179791
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_8cf4d641aaaa663c3444a68dd432773bd4e1cd87
+    created: 1789111631982
+    modified: 1789111631982
+environments:
+  name: Base Environment
+  meta:
+    id: env_8cf4d641aaaa663c3444a68dd432773bd4e1cd87
+    created: 1789111631981
+    modified: 1789111631981
+    isPrivate: false
